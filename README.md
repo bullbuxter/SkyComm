@@ -1,2 +1,0 @@
-# SkyComm
-Telecommunication web app
