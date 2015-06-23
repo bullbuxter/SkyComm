@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<!--Include head-->
+<% include includes/head.html %>
+<body>
+<!--Include header and navigation that stick at th top-->
+<% include includes/stickyheaders.html %>
+<div class="container bg-info">
+    <h1><%= users.DataTitle %></h1>
+    <div class="well">
+        <ol>
+            <% users.Users.forEach(function(item){ %>
+            <li><%= item.name %> : <%= item.email %></li>
+            <% }); %>
+        </ol>
+    </div>
+    <% if(name) { %>
+            <h1>Logged in as <%= name %></h1><center>
+            <button class="btn btn-default"><a href="/auth/logout">Logout</a></button></center>
+        <% } else { %>
+            <h1>Not logged in</h1>
+    <% } %>
+</div>
+</body>
+</html>

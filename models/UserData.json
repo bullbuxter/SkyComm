@@ -1,0 +1,40 @@
+{
+  "DataTitle" : "Users list",
+  "Users" : [
+    {
+      "_id" : "1",
+      "name" : "Akash Ballal",
+      "email" : "akashwithmi@gmail.com",
+      "password" : "HHsdfsdfSFDSDf",
+      "age" : 21
+    },
+    {
+      "_id" : "2",
+      "name" : "Bhuvan",
+      "email" : "bhuvan@gmail.com",
+      "password" : "HHsdfsdfSFDSDf",
+      "age" : 20
+    },
+    {
+      "_id" : "3",
+      "name" : "Akshay Kudva",
+      "email" : "akshay@gmail.com",
+      "password" : "HHsdfsdfSFDSDf",
+      "age" : 19
+    },
+    {
+      "_id" : "4",
+      "name" : "Anusha",
+      "email" : "anusha@gmail.com",
+      "password" : "HHsdfsdfSFDSDf",
+      "age" : 21
+    },
+    {
+      "_id" : "5",
+      "name" : "Nandan",
+      "email" : "nandan@gmail.com",
+      "password" : "HHsdfsdfSFDSDf",
+      "age" : 21
+    }
+  ]
+}

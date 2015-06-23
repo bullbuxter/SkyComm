@@ -1,0 +1,36 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#mainhead {
+  width:100%;
+}
+#mainhead form, #mainhead h1, #mainhead button {
+  margin-top: 5px;
+}
+#mainhead h1 a{
+  text-decoration: none;
+  color:#FFFFFF;
+}
+.navbar {
+  min-height: 0px;
+}
+.navbar-nav li a {
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+.navbar-nav li {
+  height: 40px;
+}
+.navbar-nav li a:hover {
+  border-bottom: solid #000000 5px;
+}
+.magic {
+  border-bottom: solid #000000 5px;
+}
+.glyphicon-search {
+  color:grey;
+}
+.container h1 {
+  text-align: center;
+  text-decoration: underline;
+}
