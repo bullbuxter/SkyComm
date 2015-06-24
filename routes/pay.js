@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    res.render('pay', { title : 'Pay'});
+    redirectUrl = '/pay';
+    res.render('pay', {
+        title : 'Pay',
+        sess: (req.session.ide)? req.session.ide : null
+    });
 });
 module.exports = router;

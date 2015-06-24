@@ -4,12 +4,57 @@ body {
 #mainhead {
   width:100%;
 }
-#mainhead form, #mainhead h1, #mainhead button {
+#mainhead h1 {
   margin-top: 5px;
+}
+#mainhead button {
+  margin-top: 10px;
 }
 #mainhead h1 a{
   text-decoration: none;
   color:#FFFFFF;
+}
+#mainhead h1 a:hover, #mainhead h1 a:active {
+  background: none;
+}
+#mainhead input {
+  background-color: rgba(0,0,0,0.21);
+  border: none;
+  margin-top: 10px;
+}
+#profOnHeader {
+  color: #000000;
+  background-color: #F8F8F8;
+  width: 90%;
+  margin-right: 10px;
+  margin-top: 11px;
+  position: absolute;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 100;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,1.00);
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,1.00);
+}
+#profOnHeader td {
+  text-align: left;
+  line-height: 2;
+}
+#loadProf {
+  margin-top: 10px;
+  font-size: large;
+  color: whitesmoke;
+}
+#loadProf span {
+  font-size: small;
+}
+#loadProf:hover, #loadProf:active, #loadProf:focus {
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.25);
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
 }
 .navbar {
   min-height: 0px;
@@ -29,6 +74,9 @@ body {
 }
 .glyphicon-search {
   color:grey;
+}
+.glyphicon-chevron-down {
+  color: rgba(255,255,255,0.69);
 }
 .container h1 {
   text-align: center;
