@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var mailer = require('../models/mailer');
 mongoose.connect('mongodb://localhost/DB');
 var schema = new mongoose.Schema({
     name: String,
@@ -19,21 +20,35 @@ router.post('/signup', function(req, res, next) {
     }).save(function (err, doc) {
             if (err)
                 res.json(err);
-            else
-                res.redirect(redirectUrl);
+            else {
+                mailer.sendMail(req.body.email);
+                res.render('message', {
+                    title: 'MESSAGE',
+                    msg: 'Registration successful. Please activate your account by clicking the link in the mail sent to ' + req.body.emailR
+                });
+            }
         });
 });
 
 isMatch = function(user, req, res) {
     var one = req.body.email;
     var two = req.body.pass;
-    if(one == user.email && two == user.pass){
-        if(user.isActive) {
+    if(one == user.email && two == user.pass) {
+        if (user.isActive) {
             req.session.ide = user;
             res.redirect(redirectUrl);
-        } else res.send("Please activate your account first.");
+        } else {
+            res.render('message', {
+                title: 'MESSAGE',
+                msg: 'You haven\'t activated your account yet. Please do so by clicking on the link in the mail sent to ' + one
+            });
+        }
+    } else {
+        res.render('message', {
+            title: 'MESSAGE',
+            msg: 'The email-id / password combination is not correct. Please try again.'
+        });
     }
-    else res.send("Email/Password combination not correct");
 };
 /* Route the signin page */
 router.post('/signin', function(req, res, next) {
@@ -41,7 +56,10 @@ router.post('/signin', function(req, res, next) {
         if(err)
             res.json(err);
         else if(doc[0] == null) {
-            res.send("User with email " + req.body.email + " does not exist.");
+            res.render('message', {
+                title: 'MESSAGE',
+                msg: 'User with email id ' + req.body.email + ' doesn\'t exist. Try again or Sign Up.'
+            });
         } else isMatch(doc[0],req, res);
         res.end();
     });

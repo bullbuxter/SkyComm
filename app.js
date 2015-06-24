@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 var about = require('./routes/about');
 var offers = require('./routes/offers');
@@ -15,7 +14,8 @@ var contact = require('./routes/contact');
 var auth = require('./routes/auth');
 var app = express();
 
-app.locals.redirectUrl = '';
+app.locals.envelope = '';
+app.locals.redirectUrl = '/';
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

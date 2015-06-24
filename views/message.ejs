@@ -1,42 +1,21 @@
-<div class="container-fluid bg-primary" id="mainhead">
-    <div class="col-sm-2">
-        <h1><a href="\">SkyComm</a></h1>
+<!doctype html>
+<html lang="en" style="height: 100%">
+<% include includes/head.html %>
+<body style="height: 100%">
+<div class="container-fluid bg-info" style="height: 100%; vertical-align: middle; text-align: center">
+    <div class="page-header">
+        <h1>MESSAGES</h1>
     </div>
-    <div class="col-sm-7">
-        <form class="form">
-            <div class="form-group has-feedback">
-                <input type="text" class="form-control bg-primary" placeholder="Search">
-                <span class="form-control-feedback glyphicon glyphicon-search"></span>
-            </div>
-        </form>
-    </div>
-    <div class="col-sm-3 text-center">
-        <% include ./profileheader.ejs %>
+    <h3><%= msg %></h3>
+    <div class="col-sm-offset-4 col-sm-4">
+        <button class="btn btn-primary" onClick="history.go(-1)"><span class="glyphicon glyphicon-backward"></span> Back</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#openLogin"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#openRegister"><span class="glyphicon glyphicon-user"></span> Sign up</button>
+        </div>
+        <a class="btn btn-primary" href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
     </div>
 </div>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/offers">Offers</a></li>
-                <li><a href="/pay">Pay Bill</a></li>
-                <li><a href="/recharge">Recharge</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <!--Login modal-->
 <div id="openLogin" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -70,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-default">Submit</button>
                         </div>
                     </div>
                 </form>      </div>
@@ -127,23 +106,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(function() {
-        var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/"));
-        $(".navbar-nav li a").each(function(){
-            if($(this).attr("href") == '' || $(this).attr("href") == pgurl)
-                $(this).addClass("magic");
-            else
-                $(this).removeClass("magic");
-        })
-    });
-    function validateReg() {
-        var pass1 = document.getElementById("pwdR").value;
-        var pass2 = document.getElementById("pwdRR").value;
-        if(!pass1.equals(pass2)) {
-            $("#noMatch").removeClass("hidden");
-            return false;
-        } else
-            return true;
-    }
-</script>
+</body>
+</html>
