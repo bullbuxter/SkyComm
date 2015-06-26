@@ -5,9 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./routes/index');
 var about = require('./routes/about');
 var offers = require('./routes/offers');
 var pay = require('./routes/pay');
@@ -16,6 +14,8 @@ var contact = require('./routes/contact');
 var auth = require('./routes/auth');
 var app = express();
 
+app.locals.envelope = '';
+app.locals.redirectUrl = '/';
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -28,8 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret: 'gggHEFGHerYhda', saveUninitialized: true, resave: true}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', index);
 app.use('/about', about);
 app.use('/offers', offers);
 app.use('/pay', pay);
@@ -42,7 +41,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-app.locals.sess;
+
 // error handlers
 
 // development error handler

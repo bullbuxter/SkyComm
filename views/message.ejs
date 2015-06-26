@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" style="height: 100%">
+<% include includes/head.html %>
+<body style="height: 100%">
+<div class="container-fluid bg-info" style="height: 100%; vertical-align: middle; text-align: center">
+    <div class="page-header">
+        <h1>MESSAGES</h1>
+    </div>
+    <h3><%= msg %></h3>
+    <div class="col-sm-offset-4 col-sm-4">
+        <button class="btn btn-primary" onClick="history.go(-1)"><span class="glyphicon glyphicon-backward"></span> Back</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#openLogin"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#openRegister"><span class="glyphicon glyphicon-user"></span> Sign up</button>
+        </div>
+        <a class="btn btn-primary" href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+    </div>
+</div>
+<!--Login modal-->
+<div id="openLogin" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login Credentials</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form"  action="/auth/signin" method="POST">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Password:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="password" class="form-control" id="pwd" name="pass" placeholder="Enter password" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>      </div>
+        </div>
+    </div>
+</div>
+
+<!--Register modal-->
+<div id="openRegister" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registeration form</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" onsubmit="return validateReg()" action="/auth/signup" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="name">Name:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="emailR">Email:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="email" class="form-control" name="emailR" id="emailR" placeholder="Enter email" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwdR">Password:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="password" class="form-control" name="passR" id="pwdR" placeholder="Enter password" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwdRR">Re-enter password:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="password" class="form-control" id="pwdRR" placeholder="Enter password again" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                            <p id="noMatch" class="hidden">*Passwords do not match. Please check again.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

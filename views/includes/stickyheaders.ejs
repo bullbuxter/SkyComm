@@ -1,0 +1,149 @@
+<div class="container-fluid bg-primary" id="mainhead">
+    <div class="col-sm-2">
+        <h1><a href="\">SkyComm</a></h1>
+    </div>
+    <div class="col-sm-7">
+        <form class="form">
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control bg-primary" placeholder="Search">
+                <span class="form-control-feedback glyphicon glyphicon-search"></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-3 text-center">
+        <% include ./profileheader.ejs %>
+    </div>
+</div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/offers">Offers</a></li>
+                <li><a href="/pay">Pay Bill</a></li>
+                <li><a href="/recharge">Recharge</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Login modal-->
+<div id="openLogin" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login Credentials</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form"  action="/auth/signin" method="POST">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Password:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="password" class="form-control" id="pwd" name="pass" placeholder="Enter password" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>      </div>
+        </div>
+    </div>
+</div>
+
+<!--Register modal-->
+<div id="openRegister" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registeration form</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" onsubmit="return validateReg()" action="/auth/signup" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="name">Name:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="emailR">Email:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="email" class="form-control" name="emailR" id="emailR" placeholder="Enter email" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwdR">Password:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="password" class="form-control" name="passR" id="pwdR" placeholder="Enter password" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwdRR">Re-enter password:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="password" class="form-control" id="pwdRR" placeholder="Enter password again" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                            <p id="noMatch" class="hidden">*Passwords do not match. Please check again.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/"));
+        $(".navbar-nav li a").each(function(){
+            if($(this).attr("href") == '' || $(this).attr("href") == pgurl)
+                $(this).addClass("magic");
+            else
+                $(this).removeClass("magic");
+        })
+    });
+    function validateReg() {
+        var pass1 = document.getElementById("pwdR").value;
+        var pass2 = document.getElementById("pwdRR").value;
+        if(!pass1.equals(pass2)) {
+            $("#noMatch").removeClass("hidden");
+            return false;
+        } else
+            return true;
+    }
+</script>

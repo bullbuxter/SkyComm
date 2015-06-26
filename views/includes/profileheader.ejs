@@ -1,0 +1,18 @@
+<% if(sess) { %>
+    <a class="btn" data-toggle="collapse" data-target="#profOnHeader" id="loadProf">
+        <span class="glyphicon glyphicon-chevron-down"></span> <%= sess.name %>
+    </a>
+    <div id="profOnHeader" class="collapse">
+        <table>
+            <tr><td>CustomerID:</td><td><%= sess._id %></td></tr>
+            <tr><td>Name:</td><td><%= sess.name %></td></tr>
+            <tr><td>Email:</td><td><%= sess.email %></td></tr>
+        </table>
+        <a class="btn btn-danger" id="profile" href="/auth/logout">Logout</a>
+    </div>
+<% } else { %>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#openLogin"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#openRegister"><span class="glyphicon glyphicon-user"></span> Sign up</button>
+    </div>
+<% } %>
