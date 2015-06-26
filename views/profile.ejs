@@ -1,0 +1,40 @@
+<%  res.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+    res.setHeader("Pragma","no-cache");
+    res.setHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT");
+%>
+<!doctype html>
+<html lang="en">
+<head>
+    <% include includes/head.html %>
+</head>
+<body>
+<% include includes/stickyheaders.ejs %>
+<div class="container text-center">
+    <h1>Profile</h1>
+    <img class="img-rounded" src="../images/user.jpg" width="256" height="256"><br><br>
+    <button class="btn btn-default" data-toggle="modal" data-target="#upload">Change profile photo</button>
+</div>
+<div id="upload" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change your profile picture..</h3>
+            </div>
+            <div class="modal-body">
+                <img class="img-rounded center-block" id="changePic" src="../images/user.jpg" width="256" height="256">
+            </div>
+            <div class="modal-footer">
+                <input type="file" class="hidden" name="userPhoto" style="position: absolute">
+                <div class="input-group col-sm-12">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                    <input type="text" class="form-control" placeholder="Upload Image" disabled>
+                    <span class="input-group-btn">
+                    <button type="submit" class="browse btn btn-primary"><span class="glyphicon glyphicon-search"></span> Browse</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

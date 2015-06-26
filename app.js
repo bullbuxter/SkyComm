@@ -12,10 +12,12 @@ var pay = require('./routes/pay');
 var recharge = require('./routes/recharge');
 var contact = require('./routes/contact');
 var auth = require('./routes/auth');
-var app = express();
+var profile = require('./routes/profile');
+var dataUsage = require('./routes/dataUsage');
+var myaccount = require('./routes/myaccount');
 
+var app = express();
 app.locals.envelope = '';
-app.locals.redirectUrl = '/';
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -35,6 +37,9 @@ app.use('/pay', pay);
 app.use('/recharge', recharge);
 app.use('/contact', contact);
 app.use('/auth', auth);
+app.use('/profile', profile);
+app.use('/dataUsage', dataUsage);
+app.use('/myaccount', myaccount);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -45,7 +50,7 @@ app.use(function(req, res, next) {
 // error handlers
 
 // development error handler
-/* will print stacktrace
+// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -55,7 +60,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
-*/
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {

@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    redirectUrl = '/contact';
+    res.cookie('redirect', '/contact');
     res.render('contact', {
         title : 'Contact',
-        sess: (req.session.ide)? req.session.ide : null
+        req: req,
+        res: res
     });
 });
 module.exports = router;

@@ -4,11 +4,9 @@ var list = require('../models/UserData.json');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.cookie('redirect', '/');
-    res.cookie('revalidate', true);
-    res.render('index', {
-        title: 'Home',
-        users: list,
+    res.cookie('redirect', '/myaccount');
+    res.render('myaccount', {
+        title: 'My Account',
         sess: (req.session.ide)? req.session.ide : null,
         req: req,
         res: res

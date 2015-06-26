@@ -1,14 +1,28 @@
-<% if(sess) { %>
+<% if(req.cookies.revalidate) {
+    res.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT");
+}
+%>
+<% if(req.session.ide) { %>
     <a class="btn" data-toggle="collapse" data-target="#profOnHeader" id="loadProf">
-        <span class="glyphicon glyphicon-chevron-down"></span> <%= sess.name %>
+        <span class="glyphicon glyphicon-chevron-down"></span> <%= req.session.ide.name %>
     </a>
     <div id="profOnHeader" class="collapse">
-        <table>
-            <tr><td>CustomerID:</td><td><%= sess._id %></td></tr>
-            <tr><td>Name:</td><td><%= sess.name %></td></tr>
-            <tr><td>Email:</td><td><%= sess.email %></td></tr>
-        </table>
-        <a class="btn btn-danger" id="profile" href="/auth/logout">Logout</a>
+        <div class = "row">
+        <div class="profPic col-md-5">
+        </div>
+        <div class="profData col-md-7">
+            <p><b><%= req.session.ide.name %></b></p>
+            <p class="small"><%= req.session.ide.email %></p>
+            <a class="btn btn-primary" href="/profile">Profile</a>
+        </div>
+        </div>
+        <div class="clearfix"></div>
+        <p>CustomerID: <%= req.session.ide._id %></p>
+        <hr>
+        <a class="btn btn-success" href="/account">My Account</a>
+        <a class="btn btn-danger" href="/auth/logout">Logout</a>
     </div>
 <% } else { %>
     <div class="btn-group">
