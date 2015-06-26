@@ -1,6 +1,10 @@
+<%  res.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+    res.setHeader("Pragma","no-cache");
+    res.setHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT");
+%>
 <!doctype html>
 <html lang="en" style="height: 100%">
-<% include includes/head.html %>
+<head><% include includes/head.html %></head>
 <body style="height: 100%">
 <div class="container-fluid bg-info" style="height: 100%; vertical-align: middle; text-align: center">
     <div class="page-header">
@@ -8,7 +12,7 @@
     </div>
     <h3><%= msg %></h3>
     <div class="col-sm-offset-4 col-sm-4">
-        <button class="btn btn-primary" onClick="history.go(-1)"><span class="glyphicon glyphicon-backward"></span> Back</button>
+        <button class="btn btn-primary" onClick="window.history.back()"><span class="glyphicon glyphicon-backward"></span> Back</button>
         <div class="btn-group">
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#openLogin"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#openRegister"><span class="glyphicon glyphicon-user"></span> Sign up</button>
