@@ -1,0 +1,25 @@
+<% if(req.cookies.revalidate) {
+    res.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT");
+}
+%>
+<nav class="w3-sidenav w3-card-2">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-xlarge w3-right"><span class="glyphicon glyphicon-hand-left"></span></a>
+    <div class="clearfix"></div>
+    <h4><a href="/" id="homelink"><span class="glyphicon glyphicon-home"></span> SkyComm</a>
+        <a href="/profile/overview" class="menu0">Overview</a>
+        <a href="#link2" class="menu1">Services</a>
+        <a href="#link3" class="menu2">Products</a>
+        <a href="/profile/data" class="menu3">Data Usage</a>
+        <a href="#link5" class="menu4">History</a>
+        <a href="/profile/settings" class="menu5">Settings</a>
+    </h4>
+</nav>
+<div id="main">
+    <header>
+        <i class="glyphicon glyphicon-hand-right w3-opennav w3-xlarge" onclick="w3_open()"></i>
+        <h1><%= title %></h1>
+        <a href="/auth/logout" class="w3-right btn">Logout</a>
+    </header>
+</div>

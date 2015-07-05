@@ -1,0 +1,70 @@
+<html>
+<head>
+    <% include ../includes/head.html %>
+</head>
+<body>
+<header class="w3-container w3-center"><h1>ADMIN PAGE</h1></header>
+<div class="container bg-info w3-center">
+    <label for="pass">Password: </label>
+    <input type="password" id="pass" required>
+    <button class="btn btn-default" type="submit" onclick="validate()">Submit</button><br><br>
+    <form class="face hidden" method="post" action="/check/admin/result">
+        <label class="control-label col-sm-1 col-sm-offset-2" for="day">MBs/day:</label>
+        <div class="col-sm-2"><input class="form-control" type="number" id="day"></div>
+        <label class="control-label col-sm-1" for="user">for user:</label>
+        <div class="col-sm-2"><input class="form-control" type="text" id="user" name="user"></div>
+        <div class="clearfix"></div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" onclick="start()">Start download</button>
+            <button type="button" class="btn btn-default" onclick="stop()">Stop download</button>
+            <button type="button" class="btn btn-default" onclick="reset()">Reset</button>
+        </div>
+        <p id="time" style="font-size: xx-large">00:00:00</p>
+        <label for="data">Data used: </label><input type="text" name="data" id="data" value="0">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <input class="hidden" id="days" name="days">
+    </form>
+</div>
+</body>
+<script>
+    function validate() {
+        if(document.getElementById('pass').value == '') {
+            $('.face').removeClass('hidden');
+        }
+    }
+    var milli= 0, min= 0, sec= 0, temp, data=0;
+    function reset() {
+        milli=0; min=0; sec=0;
+        document.getElementById('time').innerHTML = '00:00:00';
+    }
+    function start(){
+        temp = window.setInterval('disp()',100);
+    }
+    function disp(){
+        if(sec < 10){ var s = '0' + sec;}
+        else { var s = sec;}
+        if(min < 10){var m = '0' + min;}
+        else { var m = min;}
+        if(milli < 10){ var mi = '0' + milli;}
+        else { var mi = milli;}
+        str = m + ':' + s +':' + mi;
+        document.getElementById('time').innerHTML = str;
+        if(milli < 10) {
+            milli++;
+        } else {
+            milli = 0;
+            sec++;
+            if(sec == 60) {
+                sec = 0;
+                min++;
+            }
+        }
+    }
+    function stop() {
+        data = document.getElementById('day').value * sec;
+        document.getElementById('data').value = data;
+        document.getElementById('days').value = sec;
+        window.clearInterval(temp);
+    }
+</script>
+</html>

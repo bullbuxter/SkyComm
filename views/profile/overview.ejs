@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <% include profilehead.html %>
+</head>
+<body>
+<% include sidenav.ejs %>
+<div id="main2" class="w3-container">
+    <table id="overviewTable">
+        <tr>
+            <td rowspan="3" id="cell1" class="w3-card-2 white">
+                <h2>Contact Information</h2>
+                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit contact information" onclick="edit()">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+                <hr>
+                <form action="/profile/edit" method="post">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="fname">First name:</label>
+                        <input type="text" id="fname" name="fname" value="<%= user.fname %>" class="form-control" readonly>
+                    </div>
+                    <div class="col-sm-6">
+                        <label  for="lname">Last name:</label>
+                        <input type="text" id="lname" name="lname" value="<%= user.lname %>" class="form-control" readonly>
+                    </div>
+                </div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" value="<%= user.email %>" class="form-control" disabled>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="mob">Mobile:</label>
+                        <input type="tel" id="mob" name="mob" value="<%= user.phone %>" class="form-control" readonly>
+                    </div>
+                    <div class="col-sm-6">
+                        <label  for="pin">Pincode:</label>
+                        <input type="tel" id="pin" name="pin" value="<%= user.pincode %>" class="form-control" readonly>
+                    </div>
+                </div>
+                <label for="address">Address:</label>
+                <textarea rows="3" id="address" name="address" class="form-control" readonly><%= user.address %></textarea>
+                <div id="btns" class="hidden">
+                    <button type="submit" class="btn btn-primary" id="bSave">Save</button>
+                    <button class="btn btn-danger" id="bCancel" onclick="cancel()">Cancel</button>
+                </div>
+                </form>
+            </td>
+            <td rowspan="3" style="width: 20px; background: transparent;"></td>
+            <td id="cell2" class="w3-card-2 white">
+                <h3>At a glance..</h3>
+                <p class="text-right">This month</p>
+                <hr>
+                <p>Calls made:</p>
+                <p>Data consumed:</p>
+                <p>Current plan:</p>
+                <p>Last payment:</p>
+            </td>
+        </tr>
+        <tr><td style="height: 20px; background: transparent;"></td></tr>
+        <tr><td id="cell3" class="w3-card-2 white">
+                <h3>Quick links</h3>
+                <hr>
+                <p><a href="">Prepaid recharge</a></p>
+                <p><a href="">Postpaid bill payment</a></p>
+            </td></tr>
+    </table>
+</div>
+<% include navtab.html %>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    function edit() {
+        $('#btns').removeClass('hidden');
+        $('.form-control').attr('readonly', false);
+    }
+    function cancel() {
+        $('#btns').addClass('hidden');
+        $('.form-control').attr('readonly', true);
+    }
+</script>
+</body>
+</html>

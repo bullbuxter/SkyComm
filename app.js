@@ -15,6 +15,8 @@ var auth = require('./routes/auth');
 var profile = require('./routes/profile');
 var dataUsage = require('./routes/dataUsage');
 var myaccount = require('./routes/myaccount');
+var services = require('./routes/services');
+var admin = require('./routes/testing/admin');
 
 var app = express();
 app.locals.envelope = '';
@@ -40,6 +42,8 @@ app.use('/auth', auth);
 app.use('/profile', profile);
 app.use('/dataUsage', dataUsage);
 app.use('/myaccount', myaccount);
+app.use('/services', services);
+app.use('/check/admin/', admin);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

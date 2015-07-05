@@ -1,0 +1,134 @@
+body {
+    background-color: snow;
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(../fonts/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    word-wrap: normal;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+.vr {
+  width: 1px;
+  height: auto;
+  background-color: #eee;
+}
+a {
+    color: inherit;
+}
+nav {
+    display: block;
+    width: 18%;
+    background-color: #324353;
+    color: whitesmoke;
+}
+.w3-opennav {
+    width: 8%;
+}
+a.w3-closenav {
+    line-height: 45px;
+    width: 34px;
+    border-radius: 36px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.w3-sidenav a.w3-closenav:hover, .w3-sidenav a.w3-closenav:active, .w3-sidenav a.w3-closenav:focus {
+    background: transparent;
+    border: none;
+}
+.w3-sidenav h4 a:hover, .w3-sidenav h4 a:active, .w3-sidenav h4 a:focus {
+    background-color: rgba(0,0,0,0.30);
+    border-left: solid 5px #1EB093;
+}
+.activate {
+    background-color: rgba(0,0,0,0.30);
+    border-left: solid 5px #1EB093;
+}
+#homelink {
+    font-weight: 500;
+    background-color: rgba(0,0,0,0.3);
+}
+#homelink:hover, #homelink:active, #homelink:focus {
+    border: none;
+    color: whitesmoke;
+}
+#main {
+    margin-left: 18%;
+}
+#main2 {
+    margin-left: 19%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+.w3-opennav {
+     display: none;
+}
+nav h4 {
+    line-height: 30px;
+    margin-top: 0;
+}
+header {
+    background-color: #1EB093;
+    color: whitesmoke;
+    padding-top: 8px;
+    padding-left: 20px;
+    padding-bottom: 8px;
+}
+header h1 {
+    display: inline;
+    text-align: center;
+    width: 90%;
+}
+header a {
+    background-color: rgba(0,0,0,0.2);
+    color: whitesmoke;
+    margin-right: 20px;
+}
+header .btn:hover, header .btn:active, header .btn:focus {
+    color: whitesmoke;
+    background-color: rgba(0,0,0,0.3);
+}
+#cell1, #cell2, #cell3 {
+    padding-left: 20px;
+    padding-right: 20px;
+    vertical-align: -webkit-baseline-middle;
+}
+#cell1 {
+    margin-right: 20px;
+}
+#cell2 {
+    margin-bottom: 20px;
+}
+#cell3 {
+    width: 30%;
+    height: 50%;
+}
+#cell1 h2 {
+    width: 90%;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+#overviewTable input, #overviewTable textarea {
+    border: none;
+    margin-bottom: 10px;
+}
+#settingsTable input {
+  border: none;
+  margin-bottom: 10px;
+}
+td {
+  vertical-align: text-top;
+}

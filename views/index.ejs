@@ -4,15 +4,94 @@
 <body>
 <!--Include header and navigation that stick at th top-->
 <% include includes/stickyheaders.ejs %>
-<div class="container bg-info">
-    <h1><%= users.DataTitle %></h1>
-    <div class="well">
-        <ol>
-            <% users.Users.forEach(function(item){ %>
-            <li><%= item.name %> : <%= item.email %></li>
-            <% }); %>
+<div class="container" id="main">
+    <div class="carousel slide" id="offers" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#offers" data-slide-to="0" class="active grey"></li>
+            <li data-target="#offers" data-slide-to="1" class="grey"></li>
+            <li data-target="#offers" data-slide-to="2" class="grey"></li>
+            <li data-target="#offers" data-slide-to="3" class="grey"></li>
+            <li data-target="#offers" data-slide-to="4" class="grey"></li>
+            <li data-target="#offers" data-slide-to="5" class="grey"></li>
         </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="../images/banner01.jpg">
+            </div>
+            <div class="item">
+                <img src="../images/banner02.jpg">
+            </div>
+            <div class="item">
+                <img src="../images/banner03.jpg">
+            </div>
+            <div class="item">
+                <img src="../images/banner04.jpg">
+            </div>
+            <div class="item">
+                <img src="../images/banner05.jpg">
+            </div>
+            <div class="item">
+                <img src="../images/banner06.jpg">
+            </div>
+        </div>
+        <a class="left carousel-control" href="#offers" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#offers" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>
+<div class="container">
+    <h3 class="text-center">Breathtaking lightning fast ALL IN ONE services by SkyComm.</h3>
+    <div class="row" id="features">
+        <div class="col-sm-3 w3-card-2 w3-margin-8">
+            <a href="#"><h3>
+                <img src="../images/landline.png" height="100" width="100">
+                Landline
+                <span class="glyphicon glyphicon-chevron-right w3-text-grey"></span>
+            </h3></a>
+            <hr>
+            <p>High quality landline calling all over the globe</p>
+            <ul>
+                <li><a href="#">Get a new connection</a></li>
+                <li><a href="#">Pay bill</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 w3-card-2 w3-margin-8">
+            <a href="#"><h3>
+                <img src="../images/dth.png" height="100" width="100">
+                DTH
+                <span class="glyphicon glyphicon-chevron-right w3-text-grey"></span>
+            </h3></a>
+            <hr>
+            <p>High speed DTH with HD and ultra HD clarity.</p>
+            <ul>
+                <li><a href="#">Get a new connection</a></li>
+                <li><a href="#">Pay bill</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 w3-card-2 w3-margin-8">
+            <a href="#"><h3>
+                <img src="../images/internet.png" height="100" width="100">
+                Internet
+                <span class="glyphicon glyphicon-chevron-right w3-text-grey"></span>
+            </h3></a>
+            <hr>
+            <p>3G and 4G are now child's play.</p>
+            <ul>
+                <li><a href="#">Get a new connection</a></li>
+                <li><a href="#">Pay bill</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" id="announce1">
+<h4>We offer network even in the most remote areas with high quality service.</h4>
+</div>
 </body>
+<% include includes/footer.ejs %>
 </html>

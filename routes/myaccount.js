@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
         title: 'My Account',
         sess: (req.session.ide)? req.session.ide : null,
         req: req,
-        res: res
+        res: res,
+        user: req.session.user
     });
 });
 

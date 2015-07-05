@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
     res.render('about', {
         title : 'About',
         req: req,
-        res: res
+        res: res,
+        user: req.session.user
     });
 });
 module.exports = router;

@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
     res.render('dataUsage', {
         title : 'Data Tracker',
         req: req,
-        res: res
+        res: res,
+        user: req.session.user
     });
 });
 module.exports = router;

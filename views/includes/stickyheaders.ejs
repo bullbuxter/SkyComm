@@ -1,3 +1,4 @@
+<div style="position: fixed; width: 100%; top:0; z-index: 1000;">
 <div class="container-fluid bg-primary" id="mainhead">
     <div class="col-sm-2">
         <h1><a href="\">SkyComm</a></h1>
@@ -30,6 +31,7 @@
                 <li><a href="/pay">Pay Bill</a></li>
                 <li><a href="/recharge">Recharge</a></li>
                 <li><a href="/dataUsage">Data Usage</a></li>
+                <li><a href="/services">Services</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/contact">Contact</a></li>
@@ -38,6 +40,7 @@
         </div>
     </div>
 </nav>
+</div>
 <!--Login modal-->
 <div id="openLogin" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -74,7 +77,8 @@
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>
-                </form>      </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -90,16 +94,29 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form" onsubmit="return validateReg()" action="/auth/signup" method="post">
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="name">Name:</label>
+                        <label class="control-label col-sm-2" for="fname">First name:</label>
                         <div class="col-sm-10 has-feedback">
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required>
+                            <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your first name" required>
                             <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="lname">Last name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter your last name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="emailR">Email:</label>
                         <div class="col-sm-10 has-feedback">
                             <input type="email" class="form-control" name="emailR" id="emailR" placeholder="Enter email" required>
+                            <span class="form-control-feedback glyphicon glyphicon-star"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="phone">Mobile:</label>
+                        <div class="col-sm-10 has-feedback">
+                            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your mobile no." required>
                             <span class="form-control-feedback glyphicon glyphicon-star"></span>
                         </div>
                     </div>

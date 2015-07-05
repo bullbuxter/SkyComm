@@ -6,7 +6,8 @@ router.get('/', function(req, res) {
     res.render('offers', {
         title: "Offers",
         req: req,
-        res: res
+        res: res,
+        user: req.session.user
     });
 });
 
