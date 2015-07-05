@@ -1,6 +1,10 @@
 <h1>**INSTRUCTIONS**</h1>
 <ol>
+<<<<<<< HEAD
   <li>Download the zip from the Download ZIP option on the right or click <a href="https://github.com/bullbuxter/SkyComm/archive/master.zip">here</a>.</li>
+=======
+  <li>Download the zip from the Download ZIP option on the right.</li>
+>>>>>>> 779aca8d11baa70b2bc863aff36290f6cad38c87
   <li>Extract the folder into your hard disk.</li>
   <li>Now download and install node.js from <a href="https://nodejs.org" target="_blank">here</a></li>
   <li>Go to 'SkyComm\bin' and open command prompt there. Type <pre>npm install</pre></li>
